@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro';
-import { getKataSlug } from '~/utils/katas';
+import { getKataFromEntry, getKataSlug } from '~/utils/katas';
 import { getPermalink } from '~/utils/permalinks';
 
 export async function getStaticPaths() {
@@ -23,8 +23,7 @@ interface Props {
 
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
-const kata = entry.data;
-const sourceTreeUrl = `https://github.com/evilz/code-katas/tree/main/${kata.importedPath}`;
+const kata = await getKataFromEntry(entry);
 
 const metadata = {
   title: kata.title,
@@ -43,8 +42,12 @@ const metadata = {
         <h1 class="mt-6 text-4xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl">{kata.title}</h1>
         <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{kata.summary}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <Button variant="primary" href={sourceTreeUrl} target="_blank" text="Open imported folder" icon="tabler:folder-code" />
-          <Button href={kata.sourceUrl} target="_blank" text="Original repository" icon="tabler:brand-github" />
+          <Button variant="primary" href={kata.repositoryUrl} target="_blank" text="Open kata folder" icon="tabler:folder-code" />
+          {
+            kata.sourceUrl && (
+              <Button href={kata.sourceUrl} target="_blank" text="Source repository" icon="tabler:brand-github" />
+            )
+          }
         </div>
       </div>
     </header>
@@ -58,16 +61,8 @@ const metadata = {
         <h2 class="text-sm font-semibold uppercase tracking-normal text-slate-500 dark:text-slate-400">Metadata</h2>
         <dl class="mt-5 grid gap-4 text-sm">
           <div>
-            <dt class="text-slate-500 dark:text-slate-400">Status</dt>
-            <dd class="mt-1 font-medium text-slate-950 dark:text-white">{kata.status}</dd>
-          </div>
-          <div>
-            <dt class="text-slate-500 dark:text-slate-400">Origin</dt>
-            <dd class="mt-1 font-medium text-slate-950 dark:text-white">{kata.origin}</dd>
-          </div>
-          <div>
-            <dt class="text-slate-500 dark:text-slate-400">Difficulty</dt>
-            <dd class="mt-1 font-medium text-slate-950 dark:text-white">{kata.difficulty}</dd>
+            <dt class="text-slate-500 dark:text-slate-400">Folder</dt>
+            <dd class="mt-1 font-mono text-xs font-medium text-slate-950 dark:text-white">{kata.repositoryPath}</dd>
           </div>
           <div>
             <dt class="text-slate-500 dark:text-slate-400">Languages</dt>

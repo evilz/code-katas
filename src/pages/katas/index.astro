@@ -11,7 +11,7 @@ const topics = Array.from(new Set(katas.flatMap((kata) => kata.topics))).sort();
 
 const metadata = {
   title: 'Kata catalog',
-  description: 'All imported coding katas and refactoring exercises in the code-katas repository.',
+  description: 'All coding katas and refactoring exercises discovered from katas/*/README.md.',
 };
 ---
 
@@ -25,8 +25,8 @@ const metadata = {
         </p>
         <h1 class="text-4xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl">Kata catalog</h1>
         <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          Each entry points to the imported folder, the original GitHub repository, and the Markdown file that drives this
-          site.
+          Each entry is generated from a top-level folder in `katas/`. The README in that folder is both the source
+          documentation and the rendered detail page.
         </p>
       </div>
     </div>

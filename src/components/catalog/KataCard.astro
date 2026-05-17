@@ -13,17 +13,14 @@ const { kata } = Astro.props;
 >
   <div class="mb-4 flex flex-wrap gap-2">
     {
-      kata.languages.map((language) => (
-        <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-200">
-          {language}
-        </span>
-      ))
+      kata.languages
+        .slice(0, 4)
+        .map((language) => (
+          <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-200">
+            {language}
+          </span>
+        ))
     }
-    <span
-      class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
-    >
-      {kata.difficulty}
-    </span>
   </div>
 
   <h2 class="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
@@ -37,7 +34,7 @@ const { kata } = Astro.props;
   </div>
 
   <div class="mt-6 flex items-center justify-between text-sm">
-    <span class="text-slate-500 dark:text-slate-400">{kata.sourceRepo}</span>
+    <span class="font-mono text-xs text-slate-500 dark:text-slate-400">{kata.repositoryPath}</span>
     <span class="font-medium text-blue-700 group-hover:text-blue-800 dark:text-blue-300">Open</span>
   </div>
 </article>

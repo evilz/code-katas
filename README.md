@@ -4,23 +4,20 @@ Consolidated kata repository for `evilz`.
 
 This repository contains:
 
-- `katas/`: imported kata and practice repositories.
-- `src/data/kata/`: Markdown files that describe each imported source and feed the site catalog.
+- `katas/`: one top-level folder per kata or kata collection.
+- `katas/<slug>/README.md`: the source of truth for each catalog entry and detail page.
 - `src/pages/katas/`: Astro pages that render the catalog and detail pages.
 
 The site uses AstroWind and is configured for GitHub Pages at:
 
 <http://www.evilznet.com/code-katas/>
 
-## Imported sources
+## Catalog model
 
-| Source repository                  | Local path                         | Status   |
-| ---------------------------------- | ---------------------------------- | -------- |
-| `evilz/kata`                       | `katas/kata`                       | migrated |
-| `evilz/KataTrainReservation`       | `katas/kata-train-reservation`     | migrated |
-| `evilz/Racing-Car-Katas`           | `katas/racing-car-katas`           | migrated |
-| `evilz/refactoring.guru-examples`  | `katas/refactoring-guru-examples`  | migrated |
-| `evilz/millenium-falcon-challenge` | `katas/millenium-falcon-challenge` | review   |
+The site discovers katas from `katas/*/README.md`.
+
+The README title and first paragraph are used as the default catalog title and summary. Languages are detected from the
+files inside the kata folder.
 
 ## Development
 
@@ -33,5 +30,5 @@ npm run build
 ## Add a kata
 
 1. Copy the repository content under `katas/<slug>`.
-2. Add `src/data/kata/<slug>.md` with source metadata and maintenance notes.
+2. Add `katas/<slug>/README.md` with the kata title and a short first paragraph.
 3. Run `npm run build` before pushing.

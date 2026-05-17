@@ -1,4 +1,4 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -28,18 +28,15 @@ export const footerData = {
       ],
     },
     {
-      title: 'Sources',
+      title: 'Repository',
       links: [
-        { text: 'Original repositories', href: getPermalink('/katas') },
-        { text: 'Migration repository', href: 'https://github.com/evilz/code-katas' },
+        { text: 'Kata folders', href: 'https://github.com/evilz/code-katas/tree/main/katas' },
+        { text: 'GitHub repository', href: 'https://github.com/evilz/code-katas' },
       ],
     },
   ],
   secondaryLinks: [],
-  socialLinks: [
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/evilz/code-katas' },
-  ],
+  socialLinks: [{ ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/evilz/code-katas' }],
   footNote: `
     Consolidated by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/evilz">evilz</a>.
   `,

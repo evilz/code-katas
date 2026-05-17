@@ -67,18 +67,13 @@ const postCollection = defineCollection({
 });
 
 const kataCollection = defineCollection({
-  loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/kata' }),
+  loader: glob({ pattern: ['*/README.md'], base: 'katas' }),
   schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    sourceRepo: z.string(),
-    sourceUrl: z.url(),
-    importedPath: z.string(),
-    languages: z.array(z.string()),
-    topics: z.array(z.string()),
-    difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).default('mixed'),
-    origin: z.enum(['owned', 'fork']).default('owned'),
-    status: z.enum(['migrated', 'review']).default('migrated'),
+    title: z.string().optional(),
+    summary: z.string().optional(),
+    sourceUrl: z.url().optional(),
+    languages: z.array(z.string()).optional(),
+    topics: z.array(z.string()).optional(),
     metadata: metadataDefinition(),
   }),
 });
