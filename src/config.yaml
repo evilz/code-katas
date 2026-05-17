@@ -1,6 +1,6 @@
 site:
   name: Code Katas
-  site: 'https://evilz.github.io'
+  site: 'http://www.evilznet.com'
   base: '/code-katas'
   trailingSlash: false
 

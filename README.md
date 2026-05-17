@@ -10,7 +10,7 @@ This repository contains:
 
 The site uses AstroWind and is configured for GitHub Pages at:
 
-<https://evilz.github.io/code-katas>
+<http://www.evilznet.com/code-katas/>
 
 ## Imported sources
 
