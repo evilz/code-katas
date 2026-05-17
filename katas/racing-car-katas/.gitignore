@@ -1,0 +1,11 @@
+bin/
+obj/
+_ReSharper*/
+*.suo
+*.user
+.DS_Store
+*.pyc
+.idea
+scala/target
+scala/project/target
+*.iml
