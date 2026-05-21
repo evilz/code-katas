@@ -10,6 +10,9 @@ const { kata } = Astro.props;
 
 <article
   class="group relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+  data-kata-card
+  data-kata-languages={kata.languages.join('|')}
+  data-kata-topics={kata.topics.join('|')}
 >
   <div class="mb-4 flex flex-wrap gap-2">
     {
