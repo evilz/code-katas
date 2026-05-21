@@ -3,14 +3,6 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Katas',
-      href: getPermalink('/katas'),
-    },
-    {
-      text: 'Sources',
-      href: 'https://github.com/evilz/code-katas/tree/main/katas',
-    },
-    {
       text: 'GitHub',
       href: 'https://github.com/evilz/code-katas',
     },
@@ -21,16 +13,8 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Catalog',
-      links: [
-        { text: 'All katas', href: getPermalink('/katas') },
-        { text: 'Source tree', href: 'https://github.com/evilz/code-katas/tree/main/katas' },
-      ],
-    },
-    {
       title: 'Repository',
       links: [
-        { text: 'Kata folders', href: 'https://github.com/evilz/code-katas/tree/main/katas' },
         { text: 'GitHub repository', href: 'https://github.com/evilz/code-katas' },
       ],
     },
